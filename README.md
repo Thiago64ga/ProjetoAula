@@ -1,6 +1,6 @@
 ﻿# Portfólio — Thiago Eduardo Alves
 
-Site em React, TypeScript e Vinext, com visual escuro e verde-lima, animação de ondas, projetos filtráveis e layout responsivo.
+Site em React, TypeScript e Next.js, com visual escuro e verde-lima, animação de ondas, projetos filtráveis e layout responsivo.
 
 ## Personalizar
 
@@ -16,7 +16,7 @@ Edite `lib/portfolio.ts`: apresentação, biografia, tecnologias, projetos, e-ma
 Requer Node.js 22.13 ou superior.
 
 ```sh
-npm run install:ci
+npm ci
 npm run dev
 ```
 
@@ -24,4 +24,14 @@ npm run dev
 npm run build
 ```
 
-A configuração de hospedagem está em `.openai/hosting.json`. O componente SpotlightCard é do React Bits; sua licença acompanha os arquivos em `components/react-bits/`.
+O build gera o site estático na pasta `out/`.
+
+## Publicar no Netlify
+
+O `netlify.toml` da raiz configura a pasta base `portfolio-thiago`, o comando `npm run build` e a publicação de `out`. Se o conteúdo desta pasta estiver diretamente na raiz do seu repositório remoto, use o `netlify.toml` interno, que não define uma pasta base.
+
+O projeto usa exportação estática (`output: "export"`), com `NETLIFY_NEXT_PLUGIN_SKIP=true`. Não publique `.next` e não é necessário enviar `.openai/hosting.json` ao Netlify. Faça commit/push destas alterações e execute um novo deploy.
+
+A configuração alternativa do Sites permanece disponível em `.openai/hosting.json` e nos comandos `npm run dev:sites` e `npm run build:sites`.
+
+O componente SpotlightCard é do React Bits; sua licença acompanha os arquivos em `components/react-bits/`.

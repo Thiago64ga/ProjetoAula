@@ -1,0 +1,8 @@
+# Use este arquivo se portfolio-thiago for a raiz do repositório no Netlify.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
